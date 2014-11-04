@@ -1,6 +1,7 @@
 
 # === CURATOR
 #
+default.elasticsearch[:six][:version] = "1.8.0"
 default.elasticsearch[:curator][:version] = "1.1.3"
 
 default.elasticsearch[:curator][:cron][:basic][:action] = :create
