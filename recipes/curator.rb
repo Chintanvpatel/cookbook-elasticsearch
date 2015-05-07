@@ -1,3 +1,4 @@
+include_recipe 'python::pip'
 
 easy_install_package "pbr" do
     action :install
@@ -8,9 +9,8 @@ easy_install_package "six" do
     action :install
 end
 
-easy_install_package "elasticsearch-curator" do
+python_pip "elasticsearch-curator" do
     version node.elasticsearch[:curator][:version]
-    module_name "curator"
     action :install
 end
 
