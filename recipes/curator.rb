@@ -10,6 +10,7 @@ end
 
 easy_install_package "elasticsearch-curator" do
     version node.elasticsearch[:curator][:version]
+    module_name "curator"
     action :install
 end
 
