@@ -1,4 +1,8 @@
 
+easy_install_package "pbr" do
+    action :install
+end 
+
 easy_install_package "six" do
     version node.elasticsearch[:six][:version]
     action :install
