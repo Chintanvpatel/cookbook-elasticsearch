@@ -33,6 +33,7 @@ default.elasticsearch[:dir]       = "/usr/local"
 default.elasticsearch[:user]      = "elasticsearch"
 
 default.elasticsearch[:path][:conf] = "/usr/local/elasticsearch/config"
+default.elasticsearch[:path][:home] = "/usr/local/elasticsearch"
 default.elasticsearch[:path][:data] = "/usr/local/var/data/elasticsearch"
 default.elasticsearch[:path][:logs] = "/usr/local/var/log/elasticsearch"
 
