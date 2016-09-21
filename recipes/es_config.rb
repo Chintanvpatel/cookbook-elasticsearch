@@ -3,9 +3,33 @@ service "elasticsearch" do
   action [ :enable ]
 end
 
-template "synonyms1.txt" do
-  path   "#{node.elasticsearch[:path][:conf]}/synonyms1.txt"
+template "synonyms.txt" do
+  path   "#{node.elasticsearch[:path][:conf]}/synonyms.txt"
   source "synonyms.txt.erb"
+  owner node.elasticsearch[:user] and group node.elasticsearch[:user] and mode 0755
+
+  notifies :restart, 'service[elasticsearch]' unless node.elasticsearch[:skip_restart]
+end
+
+template "stopwords.txt" do
+  path   "#{node.elasticsearch[:path][:conf]}/stopwords.txt"
+  source "stopwords.txt.erb"
+  owner node.elasticsearch[:user] and group node.elasticsearch[:user] and mode 0755
+
+  notifies :restart, 'service[elasticsearch]' unless node.elasticsearch[:skip_restart]
+end
+
+template "hunspell_es_CO.aff" do
+  path   "#{node.elasticsearch[:path][:conf]}/hunspell/es_CO/es_CO.aff"
+  source "es_CO.aff.erb"
+  owner node.elasticsearch[:user] and group node.elasticsearch[:user] and mode 0755
+
+  notifies :restart, 'service[elasticsearch]' unless node.elasticsearch[:skip_restart]
+end
+
+template "hunspell_es_CO.dic" do
+  path   "#{node.elasticsearch[:path][:conf]}/hunspell/es_CO/es_CO.dic"
+  source "es_CO.dic.erb"
   owner node.elasticsearch[:user] and group node.elasticsearch[:user] and mode 0755
 
   notifies :restart, 'service[elasticsearch]' unless node.elasticsearch[:skip_restart]
