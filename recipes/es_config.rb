@@ -1,3 +1,8 @@
+service "elasticsearch" do
+  supports :status => true, :restart => true
+  action [ :enable ]
+end
+
 template "synonyms1.txt" do
   path   "#{node.elasticsearch[:path][:conf]}/synonyms1.txt"
   source "synonyms.txt.erb"
