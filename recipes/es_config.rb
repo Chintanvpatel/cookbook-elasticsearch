@@ -20,7 +20,7 @@ template "stopwords.txt" do
 end
 
 template "hunspell_es_CO.aff" do
-  path   "#{node.elasticsearch[:path][:conf]}/hunspell/es_CO/es_CO.aff"
+  path   "#{default.elasticsearch[:path][:hunspell]}/es_CO.aff"
   source "es_CO.aff.erb"
   owner node.elasticsearch[:user] and group node.elasticsearch[:user] and mode 0755
 
@@ -28,7 +28,7 @@ template "hunspell_es_CO.aff" do
 end
 
 template "hunspell_es_CO.dic" do
-  path   "#{node.elasticsearch[:path][:conf]}/hunspell/es_CO/es_CO.dic"
+  path   "#{default.elasticsearch[:path][:hunspell]}/es_CO.dic"
   source "es_CO.dic.erb"
   owner node.elasticsearch[:user] and group node.elasticsearch[:user] and mode 0755
 

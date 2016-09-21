@@ -36,6 +36,7 @@ default.elasticsearch[:path][:conf] = "/usr/local/elasticsearch/config"
 default.elasticsearch[:path][:home] = "/usr/local/elasticsearch"
 default.elasticsearch[:path][:data] = "/usr/local/var/data/elasticsearch"
 default.elasticsearch[:path][:logs] = "/usr/local/var/log/elasticsearch"
+default.elasticsearch[:path][:hunspell] = "/usr/local/elasticsearch/config/hunspell/es_CO"
 
 default.elasticsearch[:pid_path]  = "/usr/local/var/run"
 default.elasticsearch[:pid_file]  = "#{node.elasticsearch[:pid_path]}/#{node.elasticsearch[:node][:name].to_s.gsub(/\W/, '_')}.pid"
