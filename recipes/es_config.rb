@@ -3,6 +3,12 @@ service "elasticsearch" do
   action [ :enable ]
 end
 
+directory node.elasticsearch[:path][:hunspell] do
+  owner node.elasticsearch[:user] and group node.elasticsearch[:user] and mode 0755
+  recursive true
+  action :create
+end
+
 template "synonyms.txt" do
   path   "#{node.elasticsearch[:path][:conf]}/synonyms.txt"
   source "synonyms.txt.erb"
